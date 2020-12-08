@@ -17,7 +17,7 @@
 				if($codeBtn.data("status")){
 					$codeBtn.data("status",false);
 					let countTime = 60;
-					let inteval = setInterval(() => {
+					let interval = setInterval(() => {
 						countTime--;
 						if(countTime==0){
 							$codeBtn.data("status",true).text("获取验证码");
