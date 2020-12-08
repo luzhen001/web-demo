@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>title</title>
+		<meta charset="utf-8" />
+		<script type="text/javascript" src="jquery-1.12.3.min.js"></script>
+	</head>
+	<body>
+		<a href="javascript:void(0)" class="code_btn" data-status="true" onclick="getCode()">获取验证码</a>
+		<script type="text/javascript">
+			function formatStr(n){
+				n = n.toString();
+				return n[1]?n:'0'+n;
+			}
+			function getCode() {
+				let $codeBtn = $(".code_btn");
+				if($codeBtn.data("status")){
+					$codeBtn.data("status",false);
+					let countTime = 60;
+					let inteval = setInterval(() => {
+						countTime--;
+						if(countTime==0){
+							$codeBtn.data("status",true).text("获取验证码");
+							clearInterval(interval);
+						}else{
+							$codeBtn.text(formatStr(countTime)+" s");
+						}
+					}, 1000);
+				}
+			}
+		</script>
+	</body>
+</html>
