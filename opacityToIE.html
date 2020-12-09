@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>透明度兼容IE</title>
+        <meta charset="utf-8" />
+        <style type="text/css">
+            .wrap{
+                width: 500px;
+                height: 500px;
+                background: #e93038;
+            }
+            .inner_wrap{
+                width: 200px;
+                height: 200px;
+                background: #2fcc78;
+                filter:alpha(opacity=50);
+                -moz-opacity:.5;
+                -khtml-opacity:.5;
+                opacity:.5;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="wrap">
+            <div class="inner_wrap"></div>
+        </div>
+    </body>
+</html>
