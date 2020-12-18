@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>div模拟select下拉</title>
+    <meta charset="utf-8" />
+    <style type="text/css">
+        * {
+            padding: 0;
+            margin: 0;
+        }
+        ul li {
+            list-style: none;
+        }
+        .selectbox {
+            width: 500px;
+            height: auto;
+        }
+        .selectbox .selectcore {
+            background: url("images/down.png") no-repeat;
+            background-position: 98% 50%;
+            background-repeat: no-repeat;
+            width: 100%;
+            height: 38px;
+            color: #585858;
+            cursor: pointer;
+            line-height: 38px;
+            border-radius: 5px;
+            text-indent: 10px;
+            border: 1px solid #ccc;
+        }
+        .selectbox .selectitem {
+            width: 100%;
+            display: none;
+            background: #eee;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+        }
+        .selectbox .selectitem ul {
+            width: 100%;
+            height: auto;
+            cursor: pointer;
+            overflow: hidden;
+        }
+        .selectbox .selectitem li {
+            width: 100%;
+            height: 38px;
+            text-indent: 10px;
+            line-height: 38px;
+        }
+        .selectbox .selectitem li:hover {
+            background-color: #e5e5e5;
+        }
+    </style>
+</head>
+<body>
+    <div class="selectbox">
+        <div class="selectcore">预约中心</div>
+        <div class="selectitem">
+            <ul>
+                <li>徐汇中心</li>
+                <li>杨浦中心</li>
+                <li>浦东中心</li>
+            </ul>
+        </div>
+    </div>
+    <script src="jquery-1.12.3.min.js"></script>
+    <script type="text/javascript">
+        $(function () {
+            $('.selectbox .selectcore').click(function () {
+                var Items = $(".selectbox .selectitem");
+                if (Items.is(":hidden")) {
+                    Items.slideDown();
+                } else {
+                    Items.slideUp();
+                }
+            });
+            $(".selectbox .selectitem ul li").on("click", function () {
+                var itemText = $(this).text();
+                $(".selectcore").text(itemText);
+                $(".selectitem").hide();
+            });
+        });
+    </script>
+</body>
+</html>
